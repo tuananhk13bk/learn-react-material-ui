@@ -5,13 +5,10 @@ import { bindActionCreators } from 'redux'
 import { selectTab } from '../actions/index'
 
 
-const Footer = ({ footerTab, selectTabReducer, selectTab }) => (
+const Footer = ({ muscles, indexOnSelect, selectTab }) => (
   <Paper>
     <Tabs
-      value={selectTabReducer}
-      // onChange={(e, index) => {
-      //   selectTab(index)
-      // }}
+      value={indexOnSelect}
       onChange={(e, index) => {
         selectTab(index)
       }}
@@ -20,7 +17,7 @@ const Footer = ({ footerTab, selectTabReducer, selectTab }) => (
       centered
     >
       <Tab key={'All'} label={'All'} />
-      {footerTab.map(each => (
+      {muscles.map(each => (
         <Tab 
           key={each} 
           label={each} 
@@ -32,15 +29,14 @@ const Footer = ({ footerTab, selectTabReducer, selectTab }) => (
 )
 
 const mapStateToProps = state => ({
-  footerTab: state.footerTab,
-  selectTabReducer: state.selectTabReducer
+  muscles: state.footerTabReducer.muscles,
+  indexOnSelect: state.footerTabReducer.indexOnSelect
 })
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({selectTab}, dispatch)
 }
 
-const FooterContainer = connect(mapStateToProps, mapDispatchToProps)(Footer)
 
-export default FooterContainer
+export default connect(mapStateToProps, mapDispatchToProps)(Footer)
 

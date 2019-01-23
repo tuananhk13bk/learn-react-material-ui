@@ -1,10 +1,11 @@
-import footerTab from './footerTab'
-import selectTabReducer from './selectTabReducer'
+import footerTabReducer from './footerTabReducer'
+import excerciseReducer from './excerciseReducer'
+
 import { combineReducers } from 'redux'
 
 const rootReducer =  combineReducers({
-   footerTab,
-   selectTabReducer
+   footerTabReducer,
+   excerciseReducer
 })
 
 export default rootReducer

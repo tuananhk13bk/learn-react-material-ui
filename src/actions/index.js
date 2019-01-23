@@ -6,13 +6,8 @@ export const addTab = muscles => ({
   muscles
 })
 
-// export const selectTab = index => ({
-//   type: SELECT_TAB,
-//   payload: index
-  
-// })
-
 export const selectTab = index => {
+  console.log(index)
   return {
     type: SELECT_TAB,
     index
