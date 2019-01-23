@@ -3,12 +3,16 @@ import { Paper, Typography, List } from '@material-ui/core'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import { connect } from 'react-redux'
+import { selectLeftPane } from '../../actions/index'
+import { bindActionCreators } from 'redux'
 
 class LeftPane extends Component {
   
   render() {
-    const { style, excerciseReducer } = this.props
+    const { style, excerciseReducer, indexOnSelect, selectLeftPane } = this.props
 
+    // excerciseByMuscle =
+    // {shoulders: [{}, ...], arms: [{}, ...], ...}
     const excerciseByMuscle = excerciseReducer.reduce((accum, current) => {
       let key = current['muscles']
       if (!accum[key])
@@ -17,28 +21,35 @@ class LeftPane extends Component {
       return accum
     }, {})
 
+    // excerciseArrayPair =
+    // [['shoulders', [{}, ...]], ['arms', [{}, ...]], ...]
     const excerciseArrayPair = Object.entries(excerciseByMuscle)
 
+    
     return (
       <Paper style={style.Paper} > 
-        {excerciseArrayPair.map(([group, excercises]) =>
-          <Fragment>
-            <Typography
-              variant="headline"
-              style={{textTransform: 'capitalize'}}
-            >
-              {group}
-            </Typography>
-            <List component="ul">
-              {excercises.map(({ title }) =>
-                <ListItem button>
-                  <ListItemText primary={title} />
-                </ListItem>
-              )}
-              
-            
-            </List>
-          </Fragment>
+        {excerciseArrayPair.map(([group, excercises], index) =>
+          indexOnSelect === 0 || indexOnSelect === index + 1
+            ? <Fragment>
+                <Typography
+                  variant="headline"
+                  style={{textTransform: 'capitalize'}}
+                >
+                  {group}
+                </Typography>
+                <List component="ul">
+                  {excercises.map(({ title, description }) =>
+                    <ListItem 
+                      button
+                      onClick={() => selectLeftPane(title, description)}
+                    >
+                      <ListItemText primary={title} />
+                    </ListItem>
+                  )}
+                </List>
+              </Fragment>
+            : null
+          
         )}
       </Paper>
     )
@@ -47,10 +58,13 @@ class LeftPane extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    excerciseReducer: state.excerciseReducer
+    excerciseReducer: state.excerciseReducer,
+    indexOnSelect: state.footerTabReducer.indexOnSelect
   }
 }
 
-const LeftPaneContainer = connect(mapStateToProps)(LeftPane)
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({selectLeftPane}, dispatch)
+}
 
-export default LeftPaneContainer
+export default connect(mapStateToProps, mapDispatchToProps)(LeftPane)

@@ -64,8 +64,3 @@ const convertToArray = Object.entries(excercises.reduce((accum, current) => {
   return accum
 }, {}))
 
-const excerciseReducer = () => {
-  return convertToArray
-}
-
-console.log(excerciseReducer())

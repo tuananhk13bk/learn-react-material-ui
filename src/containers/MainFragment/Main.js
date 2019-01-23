@@ -1,6 +1,6 @@
 import React from 'react'
-import {  Grid } from '@material-ui/core'
-import LeftPaneContainer from './LeftPane'
+import { Grid } from '@material-ui/core'
+import LeftPane from './LeftPane'
 import RightPane from './RightPane'
 const styles = {
   Paper: { padding: 20, 
@@ -14,7 +14,7 @@ const Main = () => {
   return (
     <Grid container spacing={8} >
       <Grid item xs={6}>
-        <LeftPaneContainer style={styles} />
+        <LeftPane style={styles} />
       </Grid>
       <Grid item xs={6}>
         <RightPane style={styles} />

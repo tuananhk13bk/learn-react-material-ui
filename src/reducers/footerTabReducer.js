@@ -3,7 +3,7 @@ import { muscles } from '../dataSet'
 
 const initState = {
    muscles,
-   indexOnSelec: 0
+   indexOnSelect: undefined
 }
 
 const footerTabReducer = (state=initState, action) => {

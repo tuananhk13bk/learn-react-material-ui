@@ -1,20 +1,34 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Paper, Typography } from '@material-ui/core'
+import { connect } from 'react-redux'
 
-const RightPane = ({ style }) => (
+
+const RightPane = ({ style, 
+                     idOnSelect, 
+                     excerciseReducer,
+                     titleOnSelect,
+                     descriptionOnSelect }) => (
   <Paper style={style.Paper}>
     <Typography
       variant="display1"
-    >
-      Welcome!
+      >
+      {titleOnSelect}
     </Typography>
     <Typography
       variant="subheading"
       style={{marginTop: 20}}
     >
-      Please select excercise from the list on the left...
+      {descriptionOnSelect}
     </Typography>
   </Paper>
 )
 
-export default RightPane
+const mapStateToProps = (state) => {
+  return {
+    titleOnSelect: state.leftPaneReducer.titleOnSelect,
+    descriptionOnSelect: state.leftPaneReducer.descriptionOnSelect,
+    excerciseReducer: state.excerciseReducer
+  }
+}
+
+export default connect(mapStateToProps)(RightPane)
