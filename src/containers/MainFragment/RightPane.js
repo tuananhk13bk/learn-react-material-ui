@@ -4,8 +4,6 @@ import { connect } from 'react-redux'
 
 
 const RightPane = ({ style, 
-                     idOnSelect, 
-                     excerciseReducer,
                      titleOnSelect,
                      descriptionOnSelect }) => (
   <Paper style={style.Paper}>

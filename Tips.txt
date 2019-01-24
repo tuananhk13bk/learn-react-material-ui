@@ -1,0 +1,18 @@
+Process:
+
+1/ Create action creator
+2/ Create reducer bind to this action creator
+3/ combine this new reducer    /// Remember this step !!!!!!!
+4/ destructuring this new action creator as props of component before use
+5/ if use state: 
+   => declare function mapStateToProps = (state) => {
+     propsName: state.reducerName,
+     ...
+   }
+6/ If dispatch an action: 
+    * Remember import Action Creator file first!!!!
+   => declare function mapDispatchToProps = (dispatch) => {
+     return bindActionCreators({actionName}, dispatch)
+     or
+     dispatch({actionName}, dispatch)
+   }

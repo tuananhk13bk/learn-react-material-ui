@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
-import Header from '../containers/Header'
+import Header from './Header'
 import Footer from '../containers/Footer'
-import Main from '../containers/MainFragment/Main'
+import MainFragment from './MainFragment'
 
 
 
@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <Fragment>
         <Header />
-        <Main />
+        <MainFragment />
         <Footer />
       </Fragment>
     )

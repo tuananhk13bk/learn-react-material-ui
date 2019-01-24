@@ -1,7 +1,7 @@
 import React from 'react'
 import { Grid } from '@material-ui/core'
-import LeftPane from './LeftPane'
-import RightPane from './RightPane'
+import LeftPane from '../containers/MainFragment/LeftPane'
+import RightPane from '../containers/MainFragment/RightPane'
 const styles = {
   Paper: { padding: 20, 
            marginTop: 10, 

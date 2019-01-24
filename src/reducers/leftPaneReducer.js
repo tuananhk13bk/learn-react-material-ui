@@ -1,12 +1,11 @@
 import { SELECT_LEFT_PANE } from '../actions/actionList'
 
 const initState = {
-  titleOnSelect: "",
-  descriptionOnSelect: ""
+  titleOnSelect: "Welcome!",
+  descriptionOnSelect: "Please select a excercise from the left"
 }
 
 const leftPaneReducer = (state=initState, action) => {
-  console.log(state)
   switch (action.type) {
     case SELECT_LEFT_PANE:
       return {

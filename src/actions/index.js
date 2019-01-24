@@ -1,10 +1,6 @@
-import { SELECT_TAB, ADD_TAB, SELECT_LEFT_PANE } from './actionList'
-
-
-export const addTab = muscles => ({
-  type: ADD_TAB,
-  muscles
-})
+import { SELECT_TAB, 
+         SELECT_LEFT_PANE,
+         TOGGLE_DIALOG } from './actionList'
 
 export const selectTab = index => {
   
@@ -22,3 +18,13 @@ export const selectLeftPane = (titleOnSelect, descriptionOnSelect) => {
     descriptionOnSelect
   }
 }
+
+export const toggleDialog = (clicked) => {
+  console.log("Clicked")
+  return {
+    type: TOGGLE_DIALOG,
+    clicked
+  }
+}
+
+

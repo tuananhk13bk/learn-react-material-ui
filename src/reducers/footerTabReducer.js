@@ -1,18 +1,13 @@
-import { ADD_TAB, SELECT_TAB } from "../actions/actionList";
+import {  SELECT_TAB } from "../actions/actionList";
 import { muscles } from '../dataSet'
 
 const initState = {
    muscles,
-   indexOnSelect: undefined
+   indexOnSelect: 0
 }
 
 const footerTabReducer = (state=initState, action) => {
    switch (action.type) {
-      case ADD_TAB:
-         return {
-            ...state,
-            muscles: [...state.muscles, action.muscles]
-         }
       case SELECT_TAB:
          return {
             ...state,
