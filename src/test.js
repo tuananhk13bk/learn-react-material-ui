@@ -56,11 +56,21 @@ const excercises = [
 //    return group
 // })
 // console.log(excerciseReducer)
-const convertToArray = Object.entries(excercises.reduce((accum, current) => {
-  let key = current['muscles']
-  if (!accum[key])
-    accum[key] = []
-  accum[key].push(current)
-  return accum
-}, {}))
+let obj = {
+  saigon: 500,
+  hanoi: 300,
+  dalat: 100,
+  population: {
+    small: "Small",
+    large: "Very Large"
+  }
+}
 
+obj = {
+  ...obj,
+  population: {
+    ...obj.population,
+    small: obj.population.large.toLocaleLowerCase().replace(/ /g, '-')
+  }
+}
+console.log(obj.population)

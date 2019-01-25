@@ -58,7 +58,7 @@ class LeftPane extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    excerciseReducer: state.excerciseReducer,
+    excerciseReducer: state.excerciseReducer.excercises,
     indexOnSelect: state.footerTabReducer.indexOnSelect
   }
 }

@@ -1,6 +1,8 @@
 import { SELECT_TAB, 
          SELECT_LEFT_PANE,
-         TOGGLE_DIALOG } from './actionList'
+         TOGGLE_DIALOG,
+         ADD_EXCERCISE,
+         ADD_EXCERCISE_ELEMENT } from './actionList'
 
 export const selectTab = index => {
   
@@ -20,10 +22,30 @@ export const selectLeftPane = (titleOnSelect, descriptionOnSelect) => {
 }
 
 export const toggleDialog = (clicked) => {
-  console.log("Clicked")
   return {
     type: TOGGLE_DIALOG,
     clicked
+  }
+}
+
+export const addExcerciseElement = (element, value) => {
+  
+  // let id
+  // if (element="title") {
+  //   id = value.toLocaleLowerCase().replace(/ /g, '-')
+  // } else id = ""
+  console.log(element + value)
+  return {
+    type: ADD_EXCERCISE_ELEMENT,
+    // id,
+    element,
+    value
+  }
+}
+
+export const addExcercise = (clicked) => {
+  return {
+    type: ADD_EXCERCISE
   }
 }
 

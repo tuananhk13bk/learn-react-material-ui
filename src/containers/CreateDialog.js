@@ -12,6 +12,7 @@ import { toggleDialog } from '../actions/index'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
+import DialogForm from './DialogForm'
 
 class CreateDialog extends Component {
   
@@ -43,15 +44,19 @@ class CreateDialog extends Component {
             <DialogContentText>
               Please fill out the form below
             </DialogContentText>
-              {/* <DialogForm>
+              <DialogForm>
 
-              </DialogForm> */}
+              </DialogForm>
           </DialogContent>
-          <DialogActions>
-            <Button color="primary" variant="contained">
+          {/* <DialogActions>
+            <Button 
+              color="primary" 
+              variant="contained"
+              onClick = {() => }
+            >
               Create
             </Button>
-          </DialogActions>
+          </DialogActions> */}
         </Dialog>
       </Fragment>
     )

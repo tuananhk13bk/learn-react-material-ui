@@ -1,8 +1,6 @@
 import {  SELECT_TAB } from "../actions/actionList";
-import { muscles } from '../dataSet'
 
 const initState = {
-   muscles,
    indexOnSelect: 0
 }
 

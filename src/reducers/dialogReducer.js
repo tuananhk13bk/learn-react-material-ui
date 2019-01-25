@@ -6,7 +6,6 @@ const initState = {
 }
 
 const dialogReducer = (state=initState, action) => {
-  console.log(state)
   switch (action.type) {
     case TOGGLE_DIALOG:
       return {

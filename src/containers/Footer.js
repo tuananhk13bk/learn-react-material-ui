@@ -29,7 +29,7 @@ const Footer = ({ muscles, indexOnSelect, selectTab }) => (
 )
 
 const mapStateToProps = state => ({
-  muscles: state.footerTabReducer.muscles,
+  muscles: state.muscleReducer,
   indexOnSelect: state.footerTabReducer.indexOnSelect
 })
 
