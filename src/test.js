@@ -43,6 +43,9 @@ const excercises = [
    },
 ]
 
+const muscles = [
+  'shoulders', 'arms', 'chest', 'back', 'legs'
+]
 // const excerciseReducer = Object.entries(excercises.reduce((accum, current) => {
 //    let key = current['muscles']
 //    if (!accum[key])
@@ -57,20 +60,13 @@ const excercises = [
 // })
 // console.log(excerciseReducer)
 let obj = {
-  saigon: 500,
-  hanoi: 300,
-  dalat: 100,
-  population: {
-    small: "Small",
-    large: "Very Large"
-  }
+  name: 'michael',
+  value: [1, 2]
 }
 
 obj = {
   ...obj,
-  population: {
-    ...obj.population,
-    small: obj.population.large.toLocaleLowerCase().replace(/ /g, '-')
-  }
+  value: obj.value.push(3)
 }
-console.log(obj.population)
+
+console.log(obj)

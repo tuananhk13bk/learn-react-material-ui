@@ -1,14 +1,14 @@
 import React, { Fragment, Component } from 'react'
-import { Button } from '@material-ui/core'
 import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 import AddIcon from '@material-ui/icons/Add'
 import Fab from '@material-ui/core/Fab'
+import { changeExcerciseElement } from '../actions/index'
 import { toggleDialog } from '../actions/index'
+
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
@@ -17,7 +17,12 @@ import DialogForm from './DialogForm'
 class CreateDialog extends Component {
   
   render() {
-    const { isOpen, toggleDialog } = this.props
+    const { // state
+            isOpen, 
+            // action
+            toggleDialog,
+            changeExcerciseElement
+          } = this.props
     return (
       <Fragment>
         <Fab 
@@ -27,13 +32,19 @@ class CreateDialog extends Component {
           // so we can pass everything here
           // anw, a action always need receive something
           // {() => toggleDialog()} is not accepted
-          onClick={() => toggleDialog(null)}
+          onClick={() => {
+            toggleDialog(true)
+            // reset all current state of dialog form
+            changeExcerciseElement('title', '')
+            changeExcerciseElement('description', '')
+            changeExcerciseElement('muscles', '')
+          }}
         >
           <AddIcon />
         </Fab>
         <Dialog
           open={isOpen}
-          onClose={() => toggleDialog(null)}
+          onClose={() => toggleDialog(true)}
           aria-labelledby="form-dialog-title"
         >
           <DialogTitle id="form-dialog-title"
@@ -44,25 +55,11 @@ class CreateDialog extends Component {
             <DialogContentText>
               Please fill out the form below
             </DialogContentText>
-              <DialogForm>
-
-              </DialogForm>
+              <DialogForm />
           </DialogContent>
-          {/* <DialogActions>
-            <Button 
-              color="primary" 
-              variant="contained"
-              onClick = {() => }
-            >
-              Create
-            </Button>
-          </DialogActions> */}
         </Dialog>
       </Fragment>
     )
-      
-      
-    
   }
 }
 
@@ -73,7 +70,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({toggleDialog}, dispatch)
+  return bindActionCreators({toggleDialog, changeExcerciseElement}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateDialog)

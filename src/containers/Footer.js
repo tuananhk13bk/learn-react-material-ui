@@ -5,7 +5,12 @@ import { bindActionCreators } from 'redux'
 import { selectTab } from '../actions/index'
 
 
-const Footer = ({ muscles, indexOnSelect, selectTab }) => (
+const Footer = ({ 
+                  // state
+                  muscles, indexOnSelect, 
+                  // action
+                  selectTab 
+                }) => (
   <Paper>
     <Tabs
       value={indexOnSelect}

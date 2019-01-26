@@ -10,7 +10,8 @@ const dialogReducer = (state=initState, action) => {
     case TOGGLE_DIALOG:
       return {
         ...state,
-        isOpen: !state.isOpen
+        isOpen: !state.isOpen,
+        
       }
     default:
       return state

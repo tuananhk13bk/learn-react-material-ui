@@ -1,8 +1,10 @@
 import { SELECT_TAB, 
          SELECT_LEFT_PANE,
          TOGGLE_DIALOG,
-         ADD_EXCERCISE,
-         ADD_EXCERCISE_ELEMENT } from './actionList'
+         SUBMIT_EXCERCISE,
+         CHANGE_EXCERCISE_ELEMENT,
+         DELETE_EXCERCISE,
+         SELECT_EXCERCISE_TO_EDIT } from './actionList'
 
 export const selectTab = index => {
   
@@ -28,25 +30,36 @@ export const toggleDialog = (clicked) => {
   }
 }
 
-export const addExcerciseElement = (element, value) => {
-  
-  // let id
-  // if (element="title") {
-  //   id = value.toLocaleLowerCase().replace(/ /g, '-')
-  // } else id = ""
-  console.log(element + value)
+export const changeExcerciseElement = (element, value) => {
   return {
-    type: ADD_EXCERCISE_ELEMENT,
-    // id,
+    type: CHANGE_EXCERCISE_ELEMENT,
     element,
     value
   }
 }
 
-export const addExcercise = (clicked) => {
+export const submitExcercise = (id) => {
   return {
-    type: ADD_EXCERCISE
+    type: SUBMIT_EXCERCISE,
+    id
   }
 }
+
+export const deleteExcercise = (id) => {
+  return {
+    type: DELETE_EXCERCISE,
+    id
+  }
+}
+
+export const selectExcerciseToEdit = (id) => {
+  return {
+    type: SELECT_EXCERCISE_TO_EDIT,
+    id
+  }
+}
+
+
+
 
 
