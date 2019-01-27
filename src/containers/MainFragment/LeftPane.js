@@ -17,7 +17,7 @@ class LeftPane extends Component {
   render() {
     // declare props use in this class LeftPane
     const { // style config
-            style, 
+            className, 
             // state
             muscleReducer, 
             excerciseReducer, 
@@ -50,7 +50,7 @@ class LeftPane extends Component {
     // [['shoulders', [{}, ...]], ['arms', [{}, ...]], ...]
     const excerciseArrayPair = Object.entries(excerciseByMuscle)
     return (
-      <Paper style={style.Paper} > 
+      <Paper className={className} > 
         {excerciseArrayPair.map(([group, excercises], index) =>
           indexOnSelect === 0 || indexOnSelect === index + 1
             ? <Fragment key={group}>

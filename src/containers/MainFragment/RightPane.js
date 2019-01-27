@@ -4,14 +4,14 @@ import { connect } from 'react-redux'
 import DialogForm from '../DialogForm'
 
 const RightPane = ({ // style config
-                     style,
+                     className,
                      // state
                      titleOnSelect,
                      descriptionOnSelect,
                      editMode
                      // action
                     }) => (
-  <Paper style={style.Paper}>
+  <Paper className={className}>
     {editMode
       ? <DialogForm />
       : <Fragment>

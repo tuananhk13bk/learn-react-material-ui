@@ -15,7 +15,7 @@ import { toggleDialog } from '../actions/index'
 const styles = theme => ({
   FormControl: {
     width: 300
-  }
+  },
 })
 
 const DialogForm = ({ // style config

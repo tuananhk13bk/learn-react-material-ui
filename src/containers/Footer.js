@@ -3,9 +3,11 @@ import { Paper, Tabs, Tab } from '@material-ui/core'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { selectTab } from '../actions/index'
-
+import withWidth from '@material-ui/core/withWidth'
 
 const Footer = ({ 
+                  // style config
+                  width,
                   // state
                   muscles, indexOnSelect, 
                   // action
@@ -19,7 +21,9 @@ const Footer = ({
       }}
       indicatorColor="primary"
       textColor="primary"
-      centered
+      // xs mean extra small (on mobile device)
+      centered={width !== 'xs'}
+      variant={(width === 'xs') ? "scrollable" : null}
     >
       <Tab key={'All'} label={'All'} />
       {muscles.map(each => (
@@ -43,5 +47,5 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Footer)
+export default withWidth()(connect(mapStateToProps, mapDispatchToProps)(Footer))
 
