@@ -12,21 +12,20 @@ const RightPane = ({ // style config
                      // action
                     }) => (
   <Paper className={className}>
+    <Typography
+      color='secondary'
+      variant="display1"
+      gutterBottom
+    >
+      {titleOnSelect}
+    </Typography>
     {editMode
       ? <DialogForm />
-      : <Fragment>
-          <Typography
-          variant="display1"
-          >
-            {titleOnSelect}
-          </Typography>
-          <Typography
+      : <Typography
             variant="subheading"
-            style={{marginTop: 20}}
           >
             {descriptionOnSelect}
-          </Typography>
-        </Fragment>
+        </Typography>
     }
   </Paper>
 )

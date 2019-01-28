@@ -28,6 +28,7 @@ class CreateDialog extends Component {
         <Fab 
           aria-label="Add"
           size="small"
+          color="secondary"
           // the reducer of this toggleDialog action does not use action.payload
           // so we can pass everything here
           // anw, a action always need receive something
@@ -46,6 +47,8 @@ class CreateDialog extends Component {
           open={isOpen}
           onClose={() => toggleDialog(true)}
           aria-labelledby="form-dialog-title"
+          fullWidth
+          maxWidth='xs'
         >
           <DialogTitle id="form-dialog-title"
           >

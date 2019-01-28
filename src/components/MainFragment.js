@@ -5,7 +5,7 @@ import RightPane from '../containers/MainFragment/RightPane'
 import { withStyles } from '@material-ui/core/styles'
 
 
-const styles = them => ({
+const styles = theme => ({
   Paper: { padding: 20, 
            marginTop: 5, 
           //  marginBottom: 10, 

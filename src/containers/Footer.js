@@ -1,5 +1,5 @@
 import React from 'react'
-import { Paper, Tabs, Tab } from '@material-ui/core'
+import { AppBar, Tabs, Tab } from '@material-ui/core'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { selectTab } from '../actions/index'
@@ -13,14 +13,14 @@ const Footer = ({
                   // action
                   selectTab 
                 }) => (
-  <Paper>
+  <AppBar position='static' >
     <Tabs
       value={indexOnSelect}
       onChange={(e, index) => {
         selectTab(index)
       }}
-      indicatorColor="primary"
-      textColor="primary"
+      indicatorColor="secondary"
+      textColor="secondary"
       // xs mean extra small (on mobile device)
       centered={width !== 'xs'}
       variant={(width === 'xs') ? "scrollable" : null}
@@ -34,7 +34,7 @@ const Footer = ({
       ))}
       
     </Tabs>
-  </Paper>
+  </AppBar>
 )
 
 const mapStateToProps = state => ({

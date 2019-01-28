@@ -1,12 +1,18 @@
 import React from 'react'
 import { AppBar, Toolbar, Typography } from '@material-ui/core'
 import CreateDialog from '../containers/CreateDialog'
+import { withStyles } from '@material-ui/core/styles'
 
+const styles = {
+  flex: {
+    flex: 1
+  }
+}
 
-const Header = (props) => (
+const Header = ({ classes }) => (
   <AppBar position="static">
     <Toolbar>
-      <Typography variant="headline" color="inherit" style={{flex: 1}} >
+      <Typography className={classes.flex} variant="headline" color="inherit" >
         Excercise Database
       </Typography>
       <CreateDialog />
@@ -14,4 +20,4 @@ const Header = (props) => (
   </AppBar>
 )
 
-export default Header
+export default withStyles(styles)(Header)

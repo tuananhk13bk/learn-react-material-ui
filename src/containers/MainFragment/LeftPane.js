@@ -55,6 +55,7 @@ class LeftPane extends Component {
           indexOnSelect === 0 || indexOnSelect === index + 1
             ? <Fragment key={group}>
                 <Typography
+                  color="secondary"
                   variant="headline"
                   style={{textTransform: 'capitalize'}}
                 >
@@ -70,11 +71,13 @@ class LeftPane extends Component {
                       <ListItemText primary={title} />
                       <ListItemSecondaryAction>
                         <IconButton 
+                          color="primary"
                           onClick={() => selectExcerciseToEdit(id)}
                         >
                           <Edit />
                         </IconButton>
                         <IconButton 
+                          color="primary"
                           onClick={() => deleteExcercise(id)}
                         >
                           <Delete />

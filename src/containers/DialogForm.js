@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { withStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import FormControl from '@material-ui/core/FormControl'
@@ -12,14 +11,8 @@ import InputLabel from '@material-ui/core/InputLabel'
 import { submitExcercise, changeExcerciseElement } from '../actions/index'
 import { toggleDialog } from '../actions/index'
 
-const styles = theme => ({
-  FormControl: {
-    width: 300
-  },
-})
 
 const DialogForm = ({ // style config
-                      classes,
                       // state
                       id,
                       title,
@@ -40,10 +33,10 @@ const DialogForm = ({ // style config
         value={title}
         onChange={(event) => changeExcerciseElement('title', event.target.value)}
         margin="normal"
-        className={classes.FormControl}
+        fullWidth
       />
       <br />
-      <FormControl className={classes.FormControl}>
+      <FormControl fullWidth>
         <InputLabel htmlFor="muscles">Muscles</InputLabel>
         <Select
           value={muscleOnSelect}
@@ -67,7 +60,7 @@ const DialogForm = ({ // style config
         value={description}
         onChange={(event) => changeExcerciseElement('description', event.target.value)}
         margin="normal"
-        className={classes.FormControl}
+        fullWidth
       />
       <br />
       {editMode
@@ -113,4 +106,4 @@ const mapDispatchToProps = (dispatch) => {
                              toggleDialog }, dispatch)
 }
 
-export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(DialogForm))
+export default connect(mapStateToProps, mapDispatchToProps)(DialogForm)
