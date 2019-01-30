@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/learn-react-material-ui-win32-ia32
 /.pnp
 .pnp.js
 

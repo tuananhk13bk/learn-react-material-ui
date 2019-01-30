@@ -1,4 +1,0 @@
-1) When on edit form, if u choose another excercise on the left, the edit form not update.
-// May be migrate leftPaneReducer to excerciseReducer
-2) When on edit form, if we click create button, the current excercise will be deleted
-3) When on edit form, if we click edit icon of another excercise, the current excercise will bee deleted
